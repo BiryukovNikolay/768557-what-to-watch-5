@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Николай Бирюков](https://up.htmlacademy.ru/react/5/user/768557).
-* Наставник: `Неизвестно`.
+* Наставник: [Михаил Пушков](https://htmlacademy.ru/profile/id638545).
 
 ---
 
