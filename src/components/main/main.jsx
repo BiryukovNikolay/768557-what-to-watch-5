@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Main = ({film}) => {
-  const {title, genre, dateRelize} = film;
+  const {title, genre, dateRelize, imageSRC} = film;
 
   return (
     <div>
@@ -32,8 +32,8 @@ const Main = ({film}) => {
           <div className="movie-card__info">
             <div className="movie-card__poster">
               <img
-                src="img/the-grand-budapest-hotel-poster.jpg"
-                alt="The Grand Budapest Hotel poster"
+                src={imageSRC}
+                alt={title}
                 width={218}
                 height={327}
               />
@@ -423,7 +423,13 @@ const Main = ({film}) => {
 };
 
 Main.propTypes = {
-  film: PropTypes.object.isRequired,
-};
+  film: PropTypes.objectOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        dateRelize: PropTypes.number.isRequired,
+        genre: PropTypes.string.isRequired,
+        imageSRC: PropTypes.string.isRequired,
+      })
+  )};
 
 export default Main;

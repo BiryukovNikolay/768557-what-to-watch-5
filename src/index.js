@@ -7,6 +7,7 @@ const films = {
     title: `The Grand Budapest Hotel`,
     genre: `Drama`,
     dateRelize: `2014`,
+    imageSRC: `img/the-grand-budapest-hotel-poster.jpg`,
   },
 };
 

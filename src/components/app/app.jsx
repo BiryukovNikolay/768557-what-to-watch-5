@@ -36,7 +36,13 @@ const App = ({film}) => {
 };
 
 App.propTypes = {
-  film: PropTypes.object.isRequired,
-};
+  film: PropTypes.objectOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        dateRelize: PropTypes.number.isRequired,
+        genre: PropTypes.string.isRequired,
+        imageSRC: PropTypes.string.isRequired,
+      })
+  )};
 
 export default App;
