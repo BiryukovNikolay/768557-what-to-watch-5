@@ -423,13 +423,7 @@ const Main = ({film}) => {
 };
 
 Main.propTypes = {
-  film: PropTypes.objectOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        dateRelize: PropTypes.number.isRequired,
-        genre: PropTypes.string.isRequired,
-        imageSRC: PropTypes.string.isRequired,
-      })
-  )};
+  film: PropTypes.objectOf(PropTypes.string.isRequired).isRequired
+};
 
 export default Main;
