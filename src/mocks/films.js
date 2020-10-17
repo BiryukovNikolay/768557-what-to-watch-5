@@ -3,7 +3,7 @@ export default [
     title: `The Grand Budapest Hotel`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
     poster: `img/the-grand-budapest-hotel-poster.jpg`,
-    wallpaper: ``,
+    wallpaper: `img/bg-the-grand-budapest-hotel.jpg`,
     rating: 8.9,
     countReiewvs: 240,
     description: `In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
@@ -29,7 +29,7 @@ export default [
   {
     title: `The Lord of the Rings: The Fellowship of the Ring`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     wallpaper: ``,
     rating: 8.8,
     countReiewvs: 740,
@@ -56,7 +56,7 @@ export default [
   {
     title: `Fight Club`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/bohemian-rhapsody.jpg`,
     wallpaper: ``,
     rating: 8.8,
     countReiewvs: 350,
@@ -75,7 +75,7 @@ export default [
   {
     title: `Pulp Fiction`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/macbeth.jpg`,
     wallpaper: ``,
     rating: 8.9,
     countReiewvs: 610,
@@ -98,7 +98,7 @@ export default [
   {
     title: `Sen to Chihiro no kamikakushi`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/aviator.jpg`,
     wallpaper: ``,
     rating: 8.6,
     countReiewvs: 580,
@@ -120,7 +120,7 @@ export default [
   {
     title: `American Beauty`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/we-need-to-talk-about-kevin.jpg`,
     wallpaper: ``,
     rating: 8.3,
     countReiewvs: 220,
@@ -144,7 +144,7 @@ export default [
   {
     title: `The Social Network`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/what-we-do-in-the-shadows.jpg`,
     wallpaper: ``,
     rating: 7.7,
     countReiewvs: 620,
@@ -165,7 +165,7 @@ export default [
   {
     title: `There Will Be Blood`,
     video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-    poster: ``,
+    poster: `img/revenant.jpg`,
     wallpaper: ``,
     rating: 8.2,
     countReiewvs: 920,

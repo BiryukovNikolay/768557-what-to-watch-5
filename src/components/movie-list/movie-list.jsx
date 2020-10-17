@@ -5,16 +5,29 @@ import MovieCard from "../movie-card/movie-card";
 class MovieList extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeMovie: ``
+    };
   }
 
   render() {
-    const {onHover, movies} = this.props;
+    const {movies} = this.props;
     return (
       <div className="catalog__movies-list">
         {movies.map((movie, i) => (
-          <div key={`${i}-${movie.titte}`}>
-            <MovieCard movie={movie}/>
-          </div>
+          <MovieCard key={`${i}-${movie.released}`}
+            movie={movie}
+            onOut={() => {
+              this.setState({
+                activeMovie: ``
+              });
+            }}
+            onHover={() => {
+              this.setState({
+                activeMovie: movies[i]
+              });
+            }}/>
         ))}
       </div>
     );
@@ -22,7 +35,6 @@ class MovieList extends PureComponent {
 }
 
 MovieList.propTypes = {
-  onHover: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,

@@ -12,20 +12,35 @@ const App = ({films}) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Main films={films}/>
+        <Route exact
+          path="/"
+          render={({history}) => (
+            <Main
+              films={films}
+              onPlayButtonClick={() => history.push(`/dev-player`)}
+            />
+          )}
+        >
         </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/mylist">
-          <MyList />
+          <MyList films={films} />
         </Route>
-        <Route exact path="/dev-move">
-          <Move />
+        <Route exact
+          path="/dev-move"
+          render={({history}) => (
+            <Move
+              film={films[0]}
+              similarFilms={films}
+              onPlayButtonClick={() => history.push(`/dev-player`)}
+              onAddReviewClick={() => history.push(`/dev-review`)}
+            />
+          )}>
         </Route>
         <Route exact path="/dev-review">
-          <Review />
+          <Review film={films[0]} />
         </Route>
         <Route exact path="/dev-player">
           <Player />
