@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import MovieList from "../movie-list/movie-list";
 
 
@@ -9,7 +10,7 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {films, onPlayButtonClick} = this.props;
+    const {films} = this.props;
     const {
       title,
       poster,
@@ -58,16 +59,15 @@ class Main extends PureComponent {
                   <span className="movie-card__year">{released}</span>
                 </p>
                 <div className="movie-card__buttons">
-                  <button
-                    onClick={onPlayButtonClick}
+                  <Link
+                    to="/dev-player"
                     className="btn btn--play movie-card__button"
                     type="button">
-
                     <svg viewBox="0 0 19 19" width={19} height={19}>
                       <use xlinkHref="#play-s" />
                     </svg>
                     <span>Play</span>
-                  </button>
+                  </Link>
                   <button className="btn btn--list movie-card__button" type="button">
                     <svg viewBox="0 0 19 20" width={19} height={20}>
                       <use xlinkHref="#add" />
@@ -162,7 +162,6 @@ class Main extends PureComponent {
 }
 
 Main.propTypes = {
-  onPlayButtonClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,

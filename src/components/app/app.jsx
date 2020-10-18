@@ -12,15 +12,10 @@ const App = ({films}) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact
-          path="/"
-          render={({history}) => (
-            <Main
-              films={films}
-              onPlayButtonClick={() => history.push(`/dev-player`)}
-            />
-          )}
-        >
+        <Route exact path="/">
+          <Main
+            films={films}
+          />
         </Route>
         <Route exact path="/login">
           <Login />
@@ -28,16 +23,11 @@ const App = ({films}) => {
         <Route exact path="/mylist">
           <MyList films={films} />
         </Route>
-        <Route exact
-          path="/dev-move"
-          render={({history}) => (
-            <Move
-              film={films[0]}
-              similarFilms={films}
-              onPlayButtonClick={() => history.push(`/dev-player`)}
-              onAddReviewClick={() => history.push(`/dev-review`)}
-            />
-          )}>
+        <Route exact path="/dev-move">
+          <Move
+            film={films[0]}
+            similarFilms={films}
+          />
         </Route>
         <Route exact path="/dev-review">
           <Review film={films[0]} />

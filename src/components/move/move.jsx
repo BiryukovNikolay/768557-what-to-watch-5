@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import MovieList from "../movie-list/movie-list";
+import {Link} from "react-router-dom";
 import {getTextRetingValue} from "./utils";
 import PropTypes from "prop-types";
 
@@ -13,8 +14,6 @@ class Move extends PureComponent {
     const {
       film,
       similarFilms,
-      onPlayButtonClick,
-      onAddReviewClick,
     } = this.props;
 
     const {
@@ -70,8 +69,7 @@ class Move extends PureComponent {
                   <span className="movie-card__year">{released}</span>
                 </p>
                 <div className="movie-card__buttons">
-                  <button
-                    onClick={onPlayButtonClick}
+                  <Link to="/dev-player"
                     className="btn btn--play movie-card__button"
                     type="button"
                   >
@@ -79,7 +77,7 @@ class Move extends PureComponent {
                       <use xlinkHref="#play-s" />
                     </svg>
                     <span>Play</span>
-                  </button>
+                  </Link>
                   <button
                     className="btn btn--list movie-card__button"
                     type="button"
@@ -89,12 +87,11 @@ class Move extends PureComponent {
                     </svg>
                     <span>My list</span>
                   </button>
-                  <a
-                    onClick={onAddReviewClick}
+                  <Link to="/dev-review"
                     className="btn movie-card__button"
                   >
                 Add review
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -178,8 +175,6 @@ class Move extends PureComponent {
 }
 
 Move.propTypes = {
-  onPlayButtonClick: PropTypes.func.isRequired,
-  onAddReviewClick: PropTypes.func.isRequired,
   similarFilms: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
