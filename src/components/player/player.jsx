@@ -1,12 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Player = () => {
   return (
     <div className="player">
       <video src="#" className="player__video" poster="img/player-poster.jpg" />
-      <button type="button" className="player__exit">
+      <Link to="/dev-move" type="button" className="player__exit">
     Exit
-      </button>
+      </Link>
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">

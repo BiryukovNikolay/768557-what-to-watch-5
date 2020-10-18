@@ -1,19 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
-
-const films = {
-  grandHotelBudapest: {
-    title: `The Grand Budapest Hotel`,
-    genre: `Drama`,
-    dateRelize: `2014`,
-    imageSRC: `img/the-grand-budapest-hotel-poster.jpg`,
-  },
-};
+import films from "./mocks/films.js";
 
 ReactDOM.render(
     <App
-      film={films.grandHotelBudapest}
+      films={films}
     />,
     document.querySelector(`#root`)
 );
