@@ -17,12 +17,13 @@ class MovieCard extends PureComponent {
     return (
       <article onMouseOver={onHover} onMouseOut={onOut} className="small-movie-card catalog__movies-card">
         <div className="small-movie-card__image">
-          <Link to='/dev-move'> <img
-            src={poster}
-            alt={title}
-            width={280}
-            height={175}
-          />
+          <Link to='/dev-move'>
+            <img
+              src={poster}
+              alt={title}
+              width={280}
+              height={175}
+            />
           </Link>
         </div>
         <h3 className="small-movie-card__title">
