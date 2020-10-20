@@ -1,11 +1,11 @@
 import React, {PureComponent} from "react";
 import MovieList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
-import {getTextRetingValue} from "./utils";
+import {getRatingLabel} from "./utils";
 import PropTypes from "prop-types";
 
 
-class Move extends PureComponent {
+class Movie extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -29,7 +29,7 @@ class Move extends PureComponent {
       description,
     } = film;
 
-    const textRetingValue = getTextRetingValue(rating);
+    const ratingLabel = getRatingLabel(rating);
 
     return (
       <div>
@@ -129,7 +129,7 @@ class Move extends PureComponent {
                 <div className="movie-rating">
                   <div className="movie-rating__score">{rating}</div>
                   <p className="movie-rating__meta">
-                    <span className="movie-rating__level">{textRetingValue}</span>
+                    <span className="movie-rating__level">{ratingLabel}</span>
                     <span className="movie-rating__count">{countReiewvs}</span>
                   </p>
                 </div>
@@ -165,7 +165,7 @@ class Move extends PureComponent {
               </a>
             </div>
             <div className="copyright">
-              <p>© 2019 What to watch Ltd.</p>
+              <p>© 2020 What to watch Ltd.</p>
             </div>
           </footer>
         </div>
@@ -174,20 +174,20 @@ class Move extends PureComponent {
   }
 }
 
-Move.propTypes = {
+Movie.propTypes = {
   similarFilms: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        video: PropTypes.string,
-        poster: PropTypes.string,
-        wallpaper: PropTypes.string,
-        rating: PropTypes.number,
-        countReiewvs: PropTypes.number,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        released: PropTypes.number,
-        runTime: PropTypes.string,
-        director: PropTypes.string,
+        video: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired,
+        wallpaper: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        countReiewvs: PropTypes.number.isRequired,
+        description: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        released: PropTypes.number.isRequired,
+        runTime: PropTypes.string.isRequired,
+        director: PropTypes.string.isRequired,
         starring: PropTypes.arrayOf(
             PropTypes.string
         )
@@ -195,16 +195,16 @@ Move.propTypes = {
   ).isRequired,
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    video: PropTypes.string,
-    poster: PropTypes.string,
-    wallpaper: PropTypes.string,
-    rating: PropTypes.number,
-    countReiewvs: PropTypes.number,
-    description: PropTypes.string,
-    genre: PropTypes.string,
-    released: PropTypes.number,
-    runTime: PropTypes.string,
-    director: PropTypes.string,
+    video: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    wallpaper: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    countReiewvs: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    released: PropTypes.number.isRequired,
+    runTime: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
     starring: PropTypes.arrayOf(
         PropTypes.string
     )
@@ -212,4 +212,4 @@ Move.propTypes = {
 };
 
 
-export default Move;
+export default Movie;

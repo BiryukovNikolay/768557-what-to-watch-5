@@ -1,4 +1,4 @@
-export const getTextRetingValue = (value) => {
+export const getRatingLabel = (value) => {
   if (value < 3) {
     return `Bad`;
   } else if (value >= 3 && value < 5) {
