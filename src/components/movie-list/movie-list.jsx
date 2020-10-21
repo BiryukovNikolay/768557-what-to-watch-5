@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import MovieCard from "../movie-card/movie-card";
+import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 class MovieList extends PureComponent {
   constructor(props) {
@@ -35,24 +36,7 @@ class MovieList extends PureComponent {
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        video: PropTypes.string,
-        poster: PropTypes.string,
-        wallpaper: PropTypes.string,
-        rating: PropTypes.number,
-        countReiewvs: PropTypes.number,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        released: PropTypes.number,
-        runTime: PropTypes.string,
-        director: PropTypes.string,
-        starring: PropTypes.arrayOf(
-            PropTypes.string
-        )
-      })
-  ).isRequired
+  movies: PropTypes.arrayOf(filmPropType).isRequired
 };
 
 export default MovieList;

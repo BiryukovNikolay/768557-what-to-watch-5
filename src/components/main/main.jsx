@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import MovieList from "../movie-list/movie-list";
+import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 
 class Main extends PureComponent {
@@ -162,24 +163,7 @@ class Main extends PureComponent {
 }
 
 Main.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        video: PropTypes.string,
-        poster: PropTypes.string,
-        wallpaper: PropTypes.string,
-        rating: PropTypes.number,
-        countReiewvs: PropTypes.number,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        released: PropTypes.number,
-        runTime: PropTypes.string,
-        director: PropTypes.string,
-        starring: PropTypes.arrayOf(
-            PropTypes.string
-        )
-      })
-  ).isRequired
+  films: PropTypes.arrayOf(filmPropType).isRequired
 };
 
 export default Main;

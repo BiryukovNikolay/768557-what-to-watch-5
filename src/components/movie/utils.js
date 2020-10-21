@@ -9,7 +9,6 @@ export const getRatingLabel = (value) => {
     return `Very good`;
   } else if (value === 10) {
     return `Awesome`;
-  } else {
-    return `No rating`;
   }
+  return `No rating`;
 };

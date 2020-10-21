@@ -7,6 +7,7 @@ import MyList from "../mylist/mylist";
 import Movie from "../movie/movie";
 import Review from "../review/review";
 import Player from "../player/player";
+import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 const App = ({films}) => {
   return (
@@ -41,24 +42,7 @@ const App = ({films}) => {
 };
 
 App.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        video: PropTypes.string,
-        poster: PropTypes.string,
-        wallpaper: PropTypes.string,
-        rating: PropTypes.number,
-        countReiewvs: PropTypes.number,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        released: PropTypes.number,
-        runTime: PropTypes.string,
-        director: PropTypes.string,
-        starring: PropTypes.arrayOf(
-            PropTypes.string
-        )
-      })
-  ).isRequired
+  films: PropTypes.arrayOf(filmPropType).isRequired
 };
 
 export default App;

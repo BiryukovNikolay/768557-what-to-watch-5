@@ -3,7 +3,7 @@ import MovieList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
 import {getRatingLabel} from "./utils";
 import PropTypes from "prop-types";
-
+import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 class Movie extends PureComponent {
   constructor(props) {
@@ -175,40 +175,8 @@ class Movie extends PureComponent {
 }
 
 Movie.propTypes = {
-  similarFilms: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        video: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        wallpaper: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        countReiewvs: PropTypes.number.isRequired,
-        description: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        released: PropTypes.number.isRequired,
-        runTime: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        starring: PropTypes.arrayOf(
-            PropTypes.string
-        )
-      })
-  ).isRequired,
-  film: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    video: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    wallpaper: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    countReiewvs: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    released: PropTypes.number.isRequired,
-    runTime: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.arrayOf(
-        PropTypes.string
-    )
-  })
+  similarFilms: PropTypes.arrayOf(filmPropType).isRequired,
+  film: filmPropType
 };
 
 
