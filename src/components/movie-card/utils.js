@@ -1,4 +1,4 @@
-export const getTextRetingValue = (value) => {
+export const getRatingLabel = (value) => {
   if (value < 3) {
     return `Bad`;
   } else if (value >= 3 && value < 5) {
@@ -9,7 +9,6 @@ export const getTextRetingValue = (value) => {
     return `Very good`;
   } else if (value === 10) {
     return `Awesome`;
-  } else {
-    return `No rating`;
   }
+  return `No rating`;
 };

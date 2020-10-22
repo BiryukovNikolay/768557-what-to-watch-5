@@ -1,11 +1,13 @@
 import React, {PureComponent} from "react";
 
+const DEFAULT_RATING = 3;
+
 class NewReview extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 3,
-      textValue: ``,
+      rating: DEFAULT_RATING,
+      text: ``,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +22,7 @@ class NewReview extends PureComponent {
 
   handleTextChange(evt) {
     const {value} = evt.target;
-    this.setState({textValue: value});
+    this.setState({text: value});
   }
 
   handleSubmit(evt) {

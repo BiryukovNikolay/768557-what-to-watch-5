@@ -4,9 +4,10 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Main from "../main/main";
 import Login from "../login/login";
 import MyList from "../mylist/mylist";
-import Move from "../move/move";
+import MovieCard from "../movie-card/movie-card";
 import Review from "../review/review";
 import Player from "../player/player";
+import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 const App = ({films}) => {
   return (
@@ -24,7 +25,7 @@ const App = ({films}) => {
           <MyList films={films} />
         </Route>
         <Route exact path="/dev-move">
-          <Move
+          <MovieCard
             film={films[0]}
             similarFilms={films}
           />
@@ -41,24 +42,7 @@ const App = ({films}) => {
 };
 
 App.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        video: PropTypes.string,
-        poster: PropTypes.string,
-        wallpaper: PropTypes.string,
-        rating: PropTypes.number,
-        countReiewvs: PropTypes.number,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        released: PropTypes.number,
-        runTime: PropTypes.string,
-        director: PropTypes.string,
-        starring: PropTypes.arrayOf(
-            PropTypes.string
-        )
-      })
-  ).isRequired
+  films: PropTypes.arrayOf(filmPropType).isRequired
 };
 
 export default App;
