@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import MovieCard from "../movie-card/movie-card";
+import MovieCardPreview from "../movie-card-preview/movie-card-preview";
 import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 class MovieList extends PureComponent {
@@ -17,7 +17,7 @@ class MovieList extends PureComponent {
     return (
       <div className="catalog__movies-list">
         {movies.map((movie, i) => (
-          <MovieCard key={`${i}-${movie.released}`}
+          <MovieCardPreview key={`${i}-${movie.released}`}
             movie={movie}
             onOut={() => {
               this.setState({

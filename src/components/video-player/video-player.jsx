@@ -7,43 +7,28 @@ export default class VideoPlayer extends PureComponent {
     super(props);
 
     this._videoRef = createRef();
-
-    this.state = {
-      isLoading: true,
-      timeOut: ``
-    };
-
     this.onMouseOverHandler = this.onMouseOverHandler.bind(this);
     this.onMouseOutHandler = this.onMouseOutHandler.bind(this);
   }
 
   onMouseOverHandler() {
-    const timeOutId = setTimeout(() => {
-      this._videoRef.current.play();
+    this._isPlaing = true;
+    setTimeout(() => {
+      if (this._isPlaing) {
+        this._videoRef.current.play();
+      }
     }, 1000);
-    this.setState({
-      timeOut: timeOutId,
-    });
   }
 
   onMouseOutHandler() {
-    const timeOutId = this.state.timeOut;
-    clearTimeout(timeOutId);
     this._videoRef.current.pause();
-    this.setState({
-      timeOut: ``,
-    });
+    this._isPlaing = false;
+    this._videoRef.current.load();
   }
 
   componentDidMount() {
-    const {movie} = this.props;
-    const {poster, video} = movie;
     const videoElement = this._videoRef.current;
-
-    videoElement.src = video;
-    videoElement.poster = poster;
     videoElement.volume = 0;
-
     videoElement.oncanplaythrough = () => this.setState({
       isLoading: false,
     });
@@ -55,11 +40,16 @@ export default class VideoPlayer extends PureComponent {
   }
 
   render() {
+    const {movie} = this.props;
+    const {poster, video} = movie;
+
     return (
       <Fragment>
         <Link to='/dev-move'>
           <video
             ref={this._videoRef}
+            src={video}
+            poster={poster}
             onMouseOver={this.onMouseOverHandler}
             onMouseOut={this.onMouseOutHandler}
             className="small-movie-card__image"

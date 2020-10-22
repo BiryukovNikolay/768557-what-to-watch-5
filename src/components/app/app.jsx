@@ -4,7 +4,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Main from "../main/main";
 import Login from "../login/login";
 import MyList from "../mylist/mylist";
-import Movie from "../movie/movie";
+import MovieCard from "../movie-card/movie-card";
 import Review from "../review/review";
 import Player from "../player/player";
 import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
@@ -25,7 +25,7 @@ const App = ({films}) => {
           <MyList films={films} />
         </Route>
         <Route exact path="/dev-move">
-          <Movie
+          <MovieCard
             film={films[0]}
             similarFilms={films}
           />
