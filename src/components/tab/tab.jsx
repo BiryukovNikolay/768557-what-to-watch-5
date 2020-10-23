@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Tab = ({tab, onTabClick}) => {
+const Tab = ({tab, onTabClick, activeTab}) => {
+  const activeClass = activeTab === tab ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`;
   return (
-    <li className="movie-nav__item">
+    <li className={activeClass}>
       <a href="#"
         className="movie-nav__link"
         onClick={(evt) => {
@@ -19,7 +20,8 @@ const Tab = ({tab, onTabClick}) => {
 
 Tab.propTypes = {
   tab: PropTypes.string.isRequired,
-  onTabClick: PropTypes.func.isRequired
+  onTabClick: PropTypes.func.isRequired,
+  activeTab: PropTypes.string.isRequired
 };
 
 export default Tab;
