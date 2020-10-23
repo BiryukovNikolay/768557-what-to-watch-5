@@ -1,19 +1,25 @@
 import React, {PureComponent} from "react";
 import MovieList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
-import {getRatingLabel} from "./utils";
 import PropTypes from "prop-types";
 import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
+import Tab from "../tab/tab";
+import MovieInfoScreen from '../movie-info-screen/movie-info-screen';
 
 class MovieCard extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeTab: this.props.tabs[0],
+    };
   }
 
   render() {
     const {
       film,
       similarFilms,
+      tabs
     } = this.props;
 
     const {
@@ -22,14 +28,9 @@ class MovieCard extends PureComponent {
       genre,
       wallpaper,
       released,
-      rating,
-      countReiewvs,
-      director,
-      starring,
-      description,
     } = film;
 
-    const ratingLabel = getRatingLabel(rating);
+    const {activeTab} = this.state;
 
     return (
       <div>
@@ -109,44 +110,28 @@ class MovieCard extends PureComponent {
               <div className="movie-card__desc">
                 <nav className="movie-nav movie-card__nav">
                   <ul className="movie-nav__list">
-                    <li className="movie-nav__item movie-nav__item--active">
-                      <a href="#" className="movie-nav__link">
-                    Overview
-                      </a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">
-                    Details
-                      </a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">
-                    Reviews
-                      </a>
-                    </li>
+                    {tabs.map((tab, i) => (
+                      <Tab
+                        key={`tab-${i}`}
+                        tab={tab}
+                        onTabClick={
+                          () => {
+                            this.setState({
+                              activeTab: tab
+                            });
+                          }
+                        }
+                        activeTab={activeTab}
+                      />
+                    ))}
                   </ul>
                 </nav>
-                <div className="movie-rating">
-                  <div className="movie-rating__score">{rating}</div>
-                  <p className="movie-rating__meta">
-                    <span className="movie-rating__level">{ratingLabel}</span>
-                    <span className="movie-rating__count">{countReiewvs}</span>
-                  </p>
-                </div>
-                <div className="movie-card__text">
-                  <p>
-                    {description}
-                  </p>
-                  <p className="movie-card__director">
-                    <strong>Director: {director}</strong>
-                  </p>
-                  <p className="movie-card__starring">
-                    <strong>
-                  Starring: {starring[0]}, {starring[1]}, {starring[2]}, {starring[3]} and
-                  other
-                    </strong>
-                  </p>
-                </div>
+
+                <MovieInfoScreen
+                  film={film}
+                  activeTab={this.state.activeTab}
+                ></MovieInfoScreen>
+
               </div>
             </div>
           </div>
@@ -176,7 +161,8 @@ class MovieCard extends PureComponent {
 
 MovieCard.propTypes = {
   similarFilms: PropTypes.arrayOf(filmPropType).isRequired,
-  film: filmPropType
+  film: filmPropType.isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 

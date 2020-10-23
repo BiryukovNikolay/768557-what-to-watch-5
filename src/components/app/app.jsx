@@ -9,7 +9,7 @@ import Review from "../review/review";
 import Player from "../player/player";
 import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
-const App = ({films}) => {
+const App = ({films, tabs}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -28,6 +28,7 @@ const App = ({films}) => {
           <MovieCard
             film={films[0]}
             similarFilms={films}
+            tabs={tabs}
           />
         </Route>
         <Route exact path="/dev-review">
@@ -42,7 +43,8 @@ const App = ({films}) => {
 };
 
 App.propTypes = {
-  films: PropTypes.arrayOf(filmPropType).isRequired
+  films: PropTypes.arrayOf(filmPropType).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default App;
