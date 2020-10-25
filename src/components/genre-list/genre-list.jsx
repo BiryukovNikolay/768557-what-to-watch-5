@@ -9,7 +9,6 @@ const GenreList = ({films, activeGenre, changeFilter, getFilmsByFilter}) => {
   films.forEach((film) => {
     availableGenres.add(film.genre);
   });
-  console.log();
   return (<ul className="catalog__genres-list">
     {[...availableGenres].map((genre, i) => {
       return (<Genre
