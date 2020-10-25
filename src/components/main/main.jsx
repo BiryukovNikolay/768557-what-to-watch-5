@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import MovieList from "../movie-list/movie-list";
+import GenreList from "../genre-list/genre-list";
 import {filmPropType} from "../../prop-types/proptype-film/proptype-film.js";
 
 
@@ -83,58 +84,7 @@ class Main extends PureComponent {
         <div className="page-content">
           <section className="catalog">
             <h2 className="catalog__title visually-hidden">Catalog</h2>
-            <ul className="catalog__genres-list">
-              <li className="catalog__genres-item catalog__genres-item--active">
-                <a href="#" className="catalog__genres-link">
-                  All genres
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Comedies
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Crime
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Documentary
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Dramas
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Horror
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Kids &amp; Family
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Romance
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Sci-Fi
-                </a>
-              </li>
-              <li className="catalog__genres-item">
-                <a href="#" className="catalog__genres-link">
-                  Thrillers
-                </a>
-              </li>
-            </ul>
+            <GenreList films={films}/>
             <div className="catalog__movies-list">
               <MovieList movies={films}/>
             </div>
