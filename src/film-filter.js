@@ -1,5 +1,5 @@
 export const getFiltredFilms = (films, genre) => {
-  if (genre === `all genre`) {
+  if (genre === `All genres`) {
     return films;
   }
   return films.filter((film) => {

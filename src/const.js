@@ -9,3 +9,5 @@ export const genreType = {
   SCI_FI: `sci-fi`,
   THRILLER: `thriller`,
 };
+
+export const allGenresTitle = `All genres`;

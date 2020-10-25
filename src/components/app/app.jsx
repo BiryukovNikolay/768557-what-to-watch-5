@@ -14,9 +14,7 @@ const App = ({films, tabs}) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main
-            films={films}
-          />
+          <Main/>
         </Route>
         <Route exact path="/login">
           <Login />

@@ -1,9 +1,12 @@
 import {extend} from "../utils";
 import {ActionType} from "./action";
 import films from "../mocks/films";
+import {allGenresTitle} from "../const";
+import {getFiltredFilms} from "../film-filter.js";
 
 const initialState = {
-  genre: `all_genre`,
+  genre: allGenresTitle,
+  filteredFilms: films,
   films,
 };
 
@@ -17,13 +20,13 @@ const reducer = (state = initialState, action) => {
       });
 
     case ActionType.GET_FILMS_BY_FILTER:
-      if (state.genre === `all genre`) {
+      if (state.genre === allGenresTitle) {
         return extend({}, initialState);
       }
-      let newFilms = action.payload;
+      let newFilms = getFiltredFilms(state.films, action.payload);
 
       return extend(state, {
-        films: newFilms
+        filteredFilms: newFilms
       });
   }
   return state;
